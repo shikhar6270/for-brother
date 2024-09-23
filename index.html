@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+    <div class="container">
+        <div>
+            <h1 class="header_text">You're the most beautiful person in the world. Do you agree? 🥰🐣</h1>
+        </div>
+        <div class="gif_container">
+            <img src="https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExZHE3cHZ4a3hnbm9oNzc5Nm8yenJpNTcza25pN3hocHUxYTdxMzkxMiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/Yy7BiuPbeaGXu/giphy.gif" alt="Cute animated illustration">
+        </div>
+        <div class="buttons">
+            <button class="btn" id="yesButton" onclick="saveResponse('yes')">Yessssss</button>
+            <button class="btn" id="noButton" onmouseover="moveButton()" onclick="saveResponse('no')">no</button>
+        </div>
+    </div>
+
+    <script>
+        function saveResponse(response) {
+            localStorage.setItem('userResponse', response);
+            if (response === 'yes') {
+                window.location.href = "yes.html";
+            }
+        }
+
+        function moveButton() {
+            var button = document.getElementById('noButton');
+            var x = Math.random() * (window.innerWidth - button.offsetWidth);
+            var y = Math.random() * (window.innerHeight - button.offsetHeight);
+            button.style.position = 'absolute';
+            button.style.left = `${x}px`;
+            button.style.top = `${y}px`;
+        };
+    </script>
+</body>
+</html>
